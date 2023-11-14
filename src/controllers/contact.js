@@ -1,11 +1,15 @@
-const contactModel = require("../routes/contact");
 const db = require("../models");
 const { sendEmail } = require("../helpers/mailer");
 
 const createContact = async (req, res) => {
   try {
-    const { email, name, message } = req.body;
-    const newContact = new db.contactModel({ email, name, message });
+    const { email, firstName, message, phone } = req.body;
+    const newContact = new db.contactModel({
+      email,
+      firstName,
+      message,
+      phone,
+    });
 
     await newContact.save();
     if (newContact._id) {
@@ -19,9 +23,9 @@ const createContact = async (req, res) => {
       },
     });
   } catch (error) {
-    return res.status(500).json({ 
+    return res.status(500).json({
       success: false,
-      message: "An error occurred while trying to save the contact message.",
+      message: "An error occurred while trying to send the contact message.",
       error: error.message,
     });
   }
@@ -43,31 +47,25 @@ const getContact = async (req, res) => {
     });
   }
 };
-
-const createContactWithRealState = async (req, res) => {
+const getContactById = async (req, res) => {
   try {
-    const { email, name, message, number, serviceId } = req.body;
-    const newContact = new db.contactModel({ email, name, message });
-
-    await newContact.save();
-
-    return res.status(201).json({
+    const allMessages = await db.contactModel.findOne({ _id: req.params._id });
+    return res.status(200).json({
       success: true,
-      message: "Message Sent To Real State Successfully",
-      data: {
-        _id: newContact._id,
-      },
+      message: "Contact messages retrieved successfully",
+      data: allMessages,
     });
   } catch (error) {
     return res.status(500).json({
       success: false,
-      message: "An error occurred while trying to save the contact message.",
+      message: "An error occurred while trying to get the contact messages.",
       error: error.message,
     });
   }
 };
+
 module.exports = {
   createContact,
   getContact,
-  createContactWithRealState,
+  getContactById,
 };

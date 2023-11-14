@@ -7,7 +7,7 @@ const contactController = require('../controllers/contact');
 // Routes
 router.post('/', contactController.createContact);
 router.get('/getAll',contactController.getContact)
-router.post('/contactRealState',contactController.createContactWithRealState)
+router.post('/getContactById/:id',contactController.getContactById)
 
 
 module.exports = router;

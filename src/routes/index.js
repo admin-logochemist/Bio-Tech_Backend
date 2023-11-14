@@ -1,14 +1,15 @@
 const express = require("express");
 const contactRoute = require("../routes/contact");
 const router = express.Router();
-const newsRoute=require('../routes/news')
 const pingRoutes = require("./ping");
-const stateRoute=require('../routes/realState')
+const authRoute=require('./auth')
+const adminRoute=require('./admin')
 const routes = [
   { path: "/ping", route: pingRoutes },
   { path: "/contact", route: contactRoute },
-  { path: "/news", route: newsRoute },
-  { path: "/state", route: stateRoute },
+  { path: "/auth", route: authRoute },
+  { path: "/admin", route: adminRoute },
+
 
 
 ];

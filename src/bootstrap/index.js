@@ -8,7 +8,7 @@ exports.bootstrap = async () => {
       console.log(`Mongodb connected to host: ${url}`);
     });
   } catch (err) {
-    console.error("Error while connecting database or redis", err);
+    console.error("Error while connecting MongoDB database", err);
     throw err;
   }
   return Promise.resolve(true);

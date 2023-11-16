@@ -31,8 +31,36 @@ const contactSchema = mongoose.Schema(
     },
     token: {
       type: String,
-      default:''
-    //   required: true,
+      default: "",
+      //   required: true,
+    },
+    generalNotifications: {
+      type: Boolean,
+      default: false,
+    },
+    messageNotifications: {
+      type: Boolean,
+      default: false,
+    },
+    researchNotifications: {
+      type: Boolean,
+      default: false,
+    },
+    vibrate: {
+      type: Boolean,
+      default: false,
+    },
+    newService: {
+      type: Boolean,
+      default: false,
+    },
+    tipsAvailable: {
+      type: Boolean,
+      default: false,
+    },
+    appUpdates: {
+      type: Boolean,
+      default: false,
     },
   },
 

@@ -8,7 +8,7 @@ const adminController = require("../controllers/admin");
 // Routes
 
 // countries
-router.post("/createCountry", adminController.createCountry);
+router.post("/country", adminController.createCountry);
 router.get("/getAllCountries", adminController.getAllCountries);
 router.get("/getCountryById/:id", adminController.getCountryById);
 

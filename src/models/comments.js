@@ -14,6 +14,7 @@ const commentSchema = mongoose.Schema(
     },
     parentId:{
         type: mongoose.Schema.Types.ObjectId,
+        ref:"Comment",
         default:null
     },
     likeCount:{ 

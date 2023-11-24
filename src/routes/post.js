@@ -10,8 +10,8 @@ router.post('/post', postController.createPost);
 router.get('/:id', postController.getPostById);
 router.get('/userId/:id',postController.getAllPostsByUserId)
 router.post('/likePost',postController.likePost);
-// router.post('/commentPost',postController.commentPost)
-// router.get('/getComments/:id',postController.getCommentsByPostId)
+router.post('/commentPost',postController.commentPost)
+router.get('/getComments/:id',postController.getCommentsByPostId)
 router.get('/getLikeUsers/:id',postController.getLikeUsers)
-
+router.post('/deleteComment',postController.deleteComment)
 module.exports = router;
